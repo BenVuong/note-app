@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { MdDeleteForever } from "react-icons/md";
-const Note = ({ id, date, text , num}) => {
+const Note = ({ id, date, text, handleDeleteNote}) => {
 
   const [newText, setNewText] = useState('');
   const handleTextChange = (event) => {
@@ -14,7 +14,7 @@ const Note = ({ id, date, text , num}) => {
       <div className="note-footer">
         <small>{date}</small>
         <button className="edit">Edit</button>
-        <MdDeleteForever className="delete-icon" />
+        <MdDeleteForever onClick={()=>handleDeleteNote(id)}className="delete-icon" />
       </div>
     </div>
   );

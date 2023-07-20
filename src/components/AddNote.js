@@ -1,14 +1,21 @@
 import { useState } from "react";
 
 const AddNote = ({handleAddNote}) => {
-  const [noteText, setNotesText] = useState("");
-
+  const [noteText, setNotesText] = useState('');
+  const characterLimit = 256;
   const handleChange = (event) => {
-    setNotesText(event.target.value)
+    if (characterLimit - event.target.value.length>=0) //check if the character limit as been reached
+    {
+      setNotesText(event.target.value)
+    }
   };
 
   const handleSaveClick = () => {
-        handleAddNote(noteText)
+        if(noteText.trim().length > 0)
+        {
+          handleAddNote(noteText)
+          setNotesText('');
+        }
   }
 
   return (
@@ -21,7 +28,7 @@ const AddNote = ({handleAddNote}) => {
         value={noteText}
       />
       <div className="note-footer">
-        <small>Footer Text</small>
+        <small>{characterLimit- noteText.length} characters remaining</small>
         <button className="save" onClick={handleSaveClick}>Add Note</button>
       </div>
     </div>
