@@ -2,32 +2,25 @@ import { useEffect, useState } from "react";
 import NotesList from "./components/NotesList";
 import { nanoid } from "nanoid";
 const App = () => {
+  const date1 = new Date();
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
       text: "This is first Note",
-      date: "7/17/2023",
+      date: date1.toLocaleDateString(),
     },
     {
       id: nanoid(),
       text: "This is second Note",
-      date: "7/18/2023",
+      date: date1.toLocaleDateString(),
     },
     {
       id: nanoid(),
       text: "This is third Note",
-      date: "7/18/2023",
+      date: date1.toLocaleDateString(),
     },
-    {
-      id: nanoid(),
-      text: "This is fourth Note",
-      date: "7/18/2023",
-    },
-    {
-      id: nanoid(),
-      text: "Anime Title: Urursei Yatsura",
-      date: "7/18/2023",
-    },
+   
+ 
   ]);
 
   const addNote = (text) => {

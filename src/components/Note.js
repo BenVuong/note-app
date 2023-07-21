@@ -5,12 +5,14 @@ const Note = ({ id, date, text, handleDeleteNote }) => {
   const handleTextChange = (event) => {
     setNewText(event.target.textContent);
   };
+
+ 
   return (
-    <div className="note" contentEditable={true} onChange={handleTextChange}>
+    <div className="note" onChange={handleTextChange}>
       <span>{text}</span>
       <div className="note-footer">
         <small>{date}</small>
-        <button className="edit">Edit</button>
+        
         <MdDeleteForever
           onClick={() => handleDeleteNote(id)}
           className="delete-icon"
